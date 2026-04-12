@@ -1,0 +1,313 @@
+/* CUSTOM PROPERTIES */
+:root {
+  /* Colors */
+  --green-200: hsl(173, 61%, 77%);
+  --green-400: hsl(172, 67%, 45%);
+  --green-900: hsl(183, 100%, 15%);
+  --grey-500: hsl(186, 14%, 43%);
+  --grey-400: hsl(184, 14%, 56%);
+  --grey-200: hsl(185, 41%, 84%);
+  --grey-50: hsl(189, 47%, 97%);
+  --white: hsl(0, 100%, 100%);
+
+  /* Typography */
+  --font-primary: "Space Mono", monospace;
+  --font-weight-bold: 700;
+  --font-size-base: 16px;
+
+  /* Spaces */
+  --spacing-0: 0;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-600: 48px;
+  --spacing-1000: 80px;
+  --spacing-1200: 96px;
+  --spacing-1500: 120px;
+  --spacing-1600: 128px;
+
+  /* Breakpoints */
+  --width-mobile: 375px;
+  --width-tablet: 608px;
+  --width-desktop: 920px;
+}
+
+/* TYPOGRAPHY */
+@font-face {
+  font-family: "Space Mono";
+  src: url("assets/fonts/SpaceMono-Bold.ttf");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.text-preset-1 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 48px;
+  line-height: 71px;
+  letter-spacing: -1px;
+}
+
+.text-preset-2 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 32px;
+  line-height: 47px;
+  letter-spacing: -0.67px;
+}
+
+.text-preset-3 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.text-preset-4 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.text-preset-5 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-preset-6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: 13px;
+  line-height: 19px;
+}
+
+/* BASE STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+fieldset {
+  border: none;
+}
+
+body {
+  min-height: 100svh;
+  max-width: var(--width-mobile);
+  width: 100%;
+  margin: var(--spacing-0) auto;
+  display: grid;
+  grid-template-rows: 150px auto;
+  place-items: center;
+
+  background-color: var(--grey-200);
+  color: var(--grey-500);
+}
+
+/* COMPONENTS */
+
+/* Main */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400);
+  align-self: flex-start;
+  padding: var(--spacing-400) var(--spacing-300);
+
+  background-color: var(--white);
+  border-radius: var(--spacing-400);
+}
+
+/* Form Container */
+.form__container {
+  width: 327px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-400);
+}
+
+/* Bill Calculator */
+.bill-calculator {
+  width: 311px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400);
+}
+
+.form__bill-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.form__bill-input-container,
+.form__people-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-100) var(--spacing-200);
+  border-radius: 5px;
+  background-color: var(--grey-50);
+}
+
+.form__bill-input-container svg {
+  flex-shrink: 0;
+}
+
+.form__tip-fieldset {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-200);
+  /* place-items: center; */
+}
+
+.form__tip-legend {
+  margin-block-end: var(--spacing-100);
+}
+
+.form__tip-custom {
+  width: 100%;
+  text-align: center;
+  border: none;
+  background-color: var(--grey-50);
+  border-radius: 5px;
+}
+
+.form__tip-label:hover {
+  background-color: var(--green-200);
+  color: var(--green-900);
+}
+
+.form__tip-percentage:checked + .form__tip-label {
+  background-color: var(--green-400);
+  color: var(--green-900);
+}
+
+.form__tip-percentage:checked + .form__tip-label:hover {
+  background-color: var(--green-200);
+}
+
+.form__bill-input,
+.form__people-input {
+  width: 90%;
+  text-align: right;
+  border: none;
+  background-color: var(--grey-50);
+  color: var(--green-900);
+  outline: none;
+}
+
+/* Number of People */
+.form__people-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+}
+
+.form__people-error {
+  color: red;
+  display: none;
+}
+
+.form__people-input::placeholder {
+  color: var(--green-900);
+  opacity: 35%;
+}
+
+/* Results Container */
+.result__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-100);
+  background-color: var(--green-900);
+  border-radius: var(--spacing-200);
+  padding: var(--spacing-300);
+}
+
+.result__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400);
+}
+
+.result__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300);
+}
+
+.result__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.result__description {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.result__description small {
+  color: var(--green-400);
+}
+
+.result__value {
+  color: var(--green-400);
+}
+
+.result__reset-btn {
+  width: 281px;
+  height: 48px;
+  border-radius: 5px;
+  border: none;
+  color: var(--green-900);
+  background-color: var(--green-400);
+}
+
+/* UTILITY CLASES */
+.tip-button {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-100);
+  padding: var(--spacing-200) var(--spacing-100);
+  border-radius: 5px;
+  background-color: var(--green-900);
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.tip-button--selected {
+  background-color: var(--green-400);
+  color: var(--green-900);
+}
+
+.tip-button--active {
+  background-color: var(--green-200);
+  color: var(--green-900);
+}
