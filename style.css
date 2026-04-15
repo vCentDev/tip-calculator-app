@@ -3,6 +3,8 @@
   /* Colors */
   --green-200: hsl(173, 61%, 77%);
   --green-400: hsl(172, 67%, 45%);
+  --green-750: hsl(183, 79%, 24%);
+  --green-800: hsl(183, 85%, 21%);
   --green-900: hsl(183, 100%, 15%);
   --grey-500: hsl(186, 14%, 43%);
   --grey-400: hsl(184, 14%, 56%);
@@ -294,7 +296,8 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
-.form__people-input::placeholder {
+.form__people-input::placeholder,
+.form__bill-input::placeholder {
   color: var(--green-900);
   opacity: 35%;
 }
@@ -370,6 +373,12 @@ body {
 
 .result__reset-btn:hover {
   background-color: var(--green-200);
+}
+
+.result__reset-btn:disabled {
+  background-color: var(--green-750);
+  color: var(--green-800);
+  cursor: not-allowed;
 }
 
 /* UTILITY CLASES */
