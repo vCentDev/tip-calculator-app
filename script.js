@@ -101,9 +101,11 @@ function validateForCalculation({ bill, tipPercent, people }) {
 
   const canCalculate =
     Number.isFinite(bill) &&
+    bill >= 0 &&
     Number.isFinite(people) &&
     people > 0 &&
-    Number.isFinite(tipPercent);
+    Number.isFinite(tipPercent) &&
+    tipPercent >= 0;
 
   return {
     canCalculate,
@@ -145,7 +147,7 @@ function updateResults(tipPerPerson, totalPerPerson) {
  * @param {Object} params - { bill, tipPercent, people }
  */
 function updateResetButton({ bill, tipPercent, people }) {
-  if (bill > 0 || tipPercent > 0 || people > 1) {
+  if (bill > 0 || tipPercent > 0 || people > 0) {
     resetButton.disabled = false;
   } else {
     resetButton.disabled = true;
