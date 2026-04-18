@@ -6,6 +6,7 @@ const peopleInput = document.getElementById('people');
 const tipAmountOutput = document.getElementById('tip-amount-output');
 const totalAmountOutput = document.getElementById('total-amount-output');
 const resetButton = document.getElementById('reset-btn');
+const peopleError = document.getElementById('people-error');
 
 //* ===== HELPER FUNCTIONS ===== */
 
@@ -132,6 +133,16 @@ function calculateResults({ bill, tipPercent, people }) {
 
 //* ===== UI UPDATE FUNCTIONS ===== */
 
+const PEOPLE_ERROR_MESSAGE = "Can't be zero";
+
+function updatePeopleErrorState(hasError) {
+  peopleError.textContent = hasError ? PEOPLE_ERROR_MESSAGE : '';
+  peopleError.hidden = !hasError;
+
+  peopleInput.classList.toggle('input-error-outline', hasError);
+  peopleInput.setAttribute('aria-invalid', hasError);
+}
+
 /**
  * Updates the displayed results in the UI.
  * @param {string} tipPerPerson - Tip amount per person (formatted)
@@ -163,7 +174,10 @@ function handleCalculation() {
   const formValues = getFormValues();
 
   const validation = validateForCalculation(formValues);
-  const { canCalculate } = validation;
+  const { canCalculate, hasPeopleError } = validation;
+
+  updatePeopleErrorState(hasPeopleError);
+
   if (canCalculate) {
     const { tipPerPerson, totalPerPerson } = calculateResults(formValues);
     updateResults(tipPerPerson, totalPerPerson);
@@ -186,13 +200,13 @@ resetButton.addEventListener('click', () => {
 
 tipCustomInput.addEventListener('input', () => {
   clearSelectedRadio();
-  updateResetButton(getFormValues());
+  handleCalculation();
 });
 
 tipPercentageRadioButtons.forEach((radio) => {
-  radio.addEventListener('click', () => {
+  radio.addEventListener('change', () => {
     tipCustomInput.value = '';
-    updateResetButton(getFormValues());
+    handleCalculation();
   });
 });
 
