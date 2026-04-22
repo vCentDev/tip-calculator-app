@@ -16,7 +16,7 @@ export function readFormInputs(elements: CalculatorElements): RawFormInputs {
   return {
     bill: elements.billAmountInput.value,
     tipCustom: elements.tipCustomInput.value,
-    selectedRadio: getSelectedRadio(elements.tipPercentageRadioButtons),
+    tipRadio: getSelectedRadio(elements.tipPercentageRadioButtons)?.value,
     people: elements.peopleInput.value,
   };
 }

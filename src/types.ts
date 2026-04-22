@@ -3,7 +3,7 @@ export type TipSource = 'radio' | 'custom' | null;
 export interface RawFormInputs {
   bill: string;
   tipCustom: string;
-  selectedRadio?: HTMLInputElement;
+  tipRadio?: string;
   people: string;
 }
 
