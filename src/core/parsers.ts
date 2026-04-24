@@ -9,7 +9,7 @@ export function resolveTipSelection(inputs: RawFormInputs): TipSelection {
   const { tipCustom, tipRadio } = inputs;
   const hasCustomInput = tipCustom.trim() !== '';
   const customTipValue = parseNumber(tipCustom);
-  const hasRadioInput = tipRadio?.trim() !== '';
+  const hasRadioInput = (tipRadio?.trim() ?? '') !== '';
   const radioTipValue = parseNumber(tipRadio ?? '');
 
   if (hasCustomInput) {
