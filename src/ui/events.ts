@@ -24,13 +24,11 @@ export function bindEvents(
 
   tipCustomInput.addEventListener('input', () => {
     clearSelectedRadio(tipPercentageRadioButtons);
-    onStateChange();
   });
 
   tipPercentageRadioButtons.forEach((radio) => {
     radio.addEventListener('change', () => {
       tipCustomInput.value = '';
-      onStateChange();
     });
   });
 

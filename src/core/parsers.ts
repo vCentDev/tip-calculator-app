@@ -6,16 +6,17 @@ export function parseNumber(input: string): number | null {
 }
 
 export function resolveTipSelection(inputs: RawFormInputs): TipSelection {
-  const { tipCustom, selectedRadio } = inputs;
+  const { tipCustom, tipRadio } = inputs;
   const hasCustomInput = tipCustom.trim() !== '';
   const customTipValue = parseNumber(tipCustom);
-  const radioTipValue = selectedRadio ? Number(selectedRadio.value) : null;
+  const hasRadioInput = (tipRadio?.trim() ?? '') !== '';
+  const radioTipValue = parseNumber(tipRadio ?? '');
 
   if (hasCustomInput) {
     return { value: customTipValue ?? 0, source: 'custom' };
   }
-  if (radioTipValue !== null) {
-    return { value: radioTipValue, source: 'radio' };
+  if (hasRadioInput) {
+    return { value: radioTipValue ?? 0, source: 'radio' };
   }
 
   return { value: 0, source: null };
