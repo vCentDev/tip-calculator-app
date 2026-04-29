@@ -45,3 +45,5 @@ CLAUDE.md
 README-template.md
 style-guide.md
 Components.png
+/.agents
+skills-lock.json
