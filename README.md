@@ -5,6 +5,10 @@
 ![Mobile ScreenShot](./design/tip-calculator-mobile.png)
 ![Desktop ScreenShot](./design/tip-calculator-desktop.png)
 
+## Check it online
+
+[Tip Calculator App Web ->](https://tipcalculator-vcentdev.netlify.app/)
+
 ## 1. General summary from the app
 
 I built this project as a small interactive financial calculator focused on accuracy, accessibility, and maintainable FrontEnd structure. Although the product scope is intentionally simple, the implementation shows a clear technical intention: I did not keep all the logic inside a single script, but separated calculation, parsing, validation, DOM selection, event binding, and rendering into dedicated TypeScript modules inside `src/`.
