@@ -1,5 +1,7 @@
 # Tip Calculator App
 
+## A responsive, accessible, and tested tip calculator built with TypeScript
+
 ![Mobile ScreenShot](./design/tip-calculator-mobile.png)
 ![Desktop ScreenShot](./design/tip-calculator-desktop.png)
 
