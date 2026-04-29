@@ -20,6 +20,8 @@ npm-debug.log*
 
 # Testing
 /coverage
+/playwright-report
+/test-results
 
 # Production
 /build
