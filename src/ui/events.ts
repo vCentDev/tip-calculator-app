@@ -27,7 +27,7 @@ export function bindEvents(
   });
 
   tipPercentageRadioButtons.forEach((radio) => {
-    radio.addEventListener('change', () => {
+    radio.addEventListener('input', () => {
       tipCustomInput.value = '';
     });
   });
